@@ -30,6 +30,9 @@ class TestInstance(models.Model):
     class Meta:
         ordering = ["-date"]
 
+    def formatted_test_date(self):
+        return '{:02d}.{:02d}.{} {:02d}:{:02d}:{:02d}'.format(self.date.day, self.date.month, self.date.year, self.date.hour, self.date.minute, self.date.second)
+
     def display_test(self):
         return 'Test of {} {} at {:02d}.{:02d}.{} {:02d}:{:02d}:{:02d}'.format(self.user.first_name, self.user.last_name, self.date.day, self.date.month, self.date.year, self.date.hour, self.date.minute, self.date.second)
 
