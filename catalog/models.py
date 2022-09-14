@@ -30,7 +30,7 @@ class TestInstance(models.Model):
     class Meta:
         ordering = ["-date"]
 
-    def _date(self):
+    def formatted_test_date(self):
         return "{:02d}.{:02d}.{} {:02d}:{:02d}:{:02d}".format(
             self.date.day,
             self.date.month,

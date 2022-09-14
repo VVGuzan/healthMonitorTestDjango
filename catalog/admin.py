@@ -8,7 +8,7 @@ from .models import TestInstance, UserSimple
 @admin.register(TestInstance)
 class TestInstanceAdmin(admin.ModelAdmin):
     list_display = ("display_test",)
-    # readonly_fields = ["formatted_test_date", "id"]
+    readonly_fields = ["formatted_test_date", "id"]
     fieldsets = (
         (None, {"fields": ("user",)}),
         (
@@ -34,7 +34,7 @@ class TestInstanceAdmin(admin.ModelAdmin):
 class TestInstanceInline(admin.TabularInline):
     model = TestInstance
     extra: int = 0
-    # readonly_fields = ["formatted_test_date", "id"]
+    readonly_fields = ["formatted_test_date", "id"]
     fieldsets = [
         (
             None,
