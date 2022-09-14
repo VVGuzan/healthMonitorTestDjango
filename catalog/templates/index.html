@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>H-th Monitor Tests Home</h1>
+
+<p>Welcome to <em>H-th Monitor Tests</em> main page.</p>
+
+<h2>Dynamic content</h2>
+
+<p>The database has the following record counts:</p>
+<ul>
+    <li><strong>Users registered:</strong> {{ num_users }}</li>
+    <li><strong>Tests performed:</strong> {{ num_tests }}</li>
+</ul>
+
+{% endblock %}
