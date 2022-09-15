@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>User: {{ usersimple.last_name }} {{ usersimple.first_name }}</h1>
+
+<p><strong>Date of birth:</strong> {{ usersimple.date_of_birth }}</p>
+<p><strong>Email:</strong> {{ usersimple.email }}</p>
+<p><strong>Additional information:</strong> nothing yet realized</p>
+
+
+<div style="margin-left:20px;margin-top:20px">
+    <h4>Tests</h4>
+
+    {% for test in usersimple.testinstance_set.all %}
+    <hr>
+    <p><strong> <a href="{{ test.get_absolute_url }}">{{test.display_test}}</a></strong></p>
+    <p class="text-muted"><strong>Results:</strong> Acet:{{test.acet}}, Keto:{{test.keto}}, Par:{{test.par}},
+        RPM:{{test.rpm}}, Type: {{test.type}}</p>
+    <p class="text-muted"><strong>Comment:</strong>{{test.comment}}</p>
+    {% endfor %}
+</div>
+{% endblock %}

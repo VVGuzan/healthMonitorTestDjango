@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Tests List</h1>
+
+{% if testinstance_list %}
+<ul>
+
+    {% for test in testinstance_list %}
+    <li>
+        <a href="{{ test.get_absolute_url }}">{{ test.display_test }}</a> {% if test.type != "" %}(type: {{test.type}})
+        {%else%} (type: basic)
+        {%endif%}
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>There are no tests in the database.</p>
+{% endif %}
+{% endblock %}
