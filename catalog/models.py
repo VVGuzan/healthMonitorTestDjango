@@ -52,6 +52,12 @@ class TestInstance(models.Model):
             self.date.second,
         )
 
+    def get_absolute_url(self):
+        """
+        Return the url to access a particular test instance
+        """
+        return reverse("test-detail", args=[str(self.id)])
+
     def __str__(self) -> str:
         return self.display_test()
 
@@ -68,3 +74,12 @@ class UserSimple(models.Model):
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
+
+    def get_absolute_url(self):
+        """
+        Return the url to access a particular test instance
+        """
+        return reverse("user-detail", args=[str(self.id)])
+
+    def get_name(self):
+        return f"{self.last_name} {self.first_name}"
