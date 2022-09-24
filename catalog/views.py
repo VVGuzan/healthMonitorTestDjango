@@ -13,10 +13,17 @@ def index(request):
     # number of users registered
     num_users = UserSimple.objects.all().count()
 
+    num_visits = request.session.get("num_visits", 0)
+    request.session["num_visits"] = num_visits + 1
+
     return render(
         request,
         "index.html",
-        context={"num_tests": num_tests, "num_users": num_users},
+        context={
+            "num_tests": num_tests,
+            "num_users": num_users,
+            "num_visits": num_visits,
+        },
     )
 
 
